@@ -1,0 +1,308 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "qsafe-scanner",
+          "version": "1.0.0",
+          "rules": [
+            {
+              "id": "JS-RSA-KEYPAIR",
+              "name": "RSA",
+              "shortDescription": {
+                "text": "Replace RSA with ML-DSA-65 (FIPS 204)"
+              },
+              "help": {
+                "text": "Replace with: ML-DSA-65 (FIPS 204)"
+              }
+            },
+            {
+              "id": "JS-ECDH",
+              "name": "ECDH",
+              "shortDescription": {
+                "text": "Replace ECDH with ML-KEM-768 (FIPS 203), hybrid with X25519"
+              },
+              "help": {
+                "text": "Replace with: ML-KEM-768 (FIPS 203), hybrid with X25519"
+              }
+            },
+            {
+              "id": "JS-SHA1",
+              "name": "SHA-1",
+              "shortDescription": {
+                "text": "Replace SHA-1 with SHA-256 (use a password KDF like Argon2 for passwords)"
+              },
+              "help": {
+                "text": "Replace with: SHA-256 (use a password KDF like Argon2 for passwords)"
+              }
+            },
+            {
+              "id": "TLS-CLASSICAL-KEX",
+              "name": "ECDHE/RSA",
+              "shortDescription": {
+                "text": "Replace ECDHE/RSA with Hybrid TLS group X25519MLKEM768"
+              },
+              "help": {
+                "text": "Replace with: Hybrid TLS group X25519MLKEM768"
+              }
+            },
+            {
+              "id": "PY-RSA-GEN",
+              "name": "RSA",
+              "shortDescription": {
+                "text": "Replace RSA with ML-KEM-768 (FIPS 203), hybrid with X25519"
+              },
+              "help": {
+                "text": "Replace with: ML-KEM-768 (FIPS 203), hybrid with X25519"
+              }
+            },
+            {
+              "id": "PY-EC-GEN",
+              "name": "ECC",
+              "shortDescription": {
+                "text": "Replace ECC with ML-DSA-65 (FIPS 204)"
+              },
+              "help": {
+                "text": "Replace with: ML-DSA-65 (FIPS 204)"
+              }
+            },
+            {
+              "id": "PY-MD5",
+              "name": "MD5",
+              "shortDescription": {
+                "text": "Replace MD5 with SHA-256 / SHA3-256"
+              },
+              "help": {
+                "text": "Replace with: SHA-256 / SHA3-256"
+              }
+            },
+            {
+              "id": "JAVA-RSA",
+              "name": "RSA",
+              "shortDescription": {
+                "text": "Replace RSA with ML-KEM-768 (FIPS 203)"
+              },
+              "help": {
+                "text": "Replace with: ML-KEM-768 (FIPS 203)"
+              }
+            },
+            {
+              "id": "JAVA-ECDSA",
+              "name": "ECDSA",
+              "shortDescription": {
+                "text": "Replace ECDSA with ML-DSA-65 (FIPS 204)"
+              },
+              "help": {
+                "text": "Replace with: ML-DSA-65 (FIPS 204)"
+              }
+            },
+            {
+              "id": "JAVA-DH",
+              "name": "DH",
+              "shortDescription": {
+                "text": "Replace DH with ML-KEM-768 (FIPS 203)"
+              },
+              "help": {
+                "text": "Replace with: ML-KEM-768 (FIPS 203)"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "JS-RSA-KEYPAIR",
+          "level": "error",
+          "message": {
+            "text": "RSA is quantum-vulnerable. Severity: HIGH. Recommended replacement: ML-DSA-65 (FIPS 204)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/auth.js"
+                },
+                "region": {
+                  "startLine": 5
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "JS-ECDH",
+          "level": "error",
+          "message": {
+            "text": "ECDH is quantum-vulnerable. Severity: CRITICAL. Recommended replacement: ML-KEM-768 (FIPS 203), hybrid with X25519."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/auth.js"
+                },
+                "region": {
+                  "startLine": 8
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "JS-SHA1",
+          "level": "warning",
+          "message": {
+            "text": "SHA-1 is quantum-vulnerable. Severity: MEDIUM. Recommended replacement: SHA-256 (use a password KDF like Argon2 for passwords)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/auth.js"
+                },
+                "region": {
+                  "startLine": 12
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "TLS-CLASSICAL-KEX",
+          "level": "error",
+          "message": {
+            "text": "ECDHE/RSA is quantum-vulnerable. Severity: CRITICAL. Recommended replacement: Hybrid TLS group X25519MLKEM768."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/nginx.conf"
+                },
+                "region": {
+                  "startLine": 5
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PY-RSA-GEN",
+          "level": "error",
+          "message": {
+            "text": "RSA is quantum-vulnerable. Severity: CRITICAL. Recommended replacement: ML-KEM-768 (FIPS 203), hybrid with X25519."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/payments_service.py"
+                },
+                "region": {
+                  "startLine": 9
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PY-EC-GEN",
+          "level": "error",
+          "message": {
+            "text": "ECC is quantum-vulnerable. Severity: HIGH. Recommended replacement: ML-DSA-65 (FIPS 204)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/payments_service.py"
+                },
+                "region": {
+                  "startLine": 20
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PY-MD5",
+          "level": "warning",
+          "message": {
+            "text": "MD5 is quantum-vulnerable. Severity: MEDIUM. Recommended replacement: SHA-256 / SHA3-256."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/payments_service.py"
+                },
+                "region": {
+                  "startLine": 25
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "JAVA-RSA",
+          "level": "error",
+          "message": {
+            "text": "RSA is quantum-vulnerable. Severity: CRITICAL. Recommended replacement: ML-KEM-768 (FIPS 203)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/TokenService.java"
+                },
+                "region": {
+                  "startLine": 9
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "JAVA-ECDSA",
+          "level": "error",
+          "message": {
+            "text": "ECDSA is quantum-vulnerable. Severity: HIGH. Recommended replacement: ML-DSA-65 (FIPS 204)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/TokenService.java"
+                },
+                "region": {
+                  "startLine": 14
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "JAVA-DH",
+          "level": "error",
+          "message": {
+            "text": "DH is quantum-vulnerable. Severity: CRITICAL. Recommended replacement: ML-KEM-768 (FIPS 203)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "demo_vulnerable_app/TokenService.java"
+                },
+                "region": {
+                  "startLine": 17
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

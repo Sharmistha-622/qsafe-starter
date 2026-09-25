@@ -1,0 +1,157 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:373894a8-94b4-4ac9-98b0-c2d10ccb5632",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-25T22:38:25Z",
+    "tools": [
+      {
+        "name": "qsafe-scanner"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "9ab7297b-d041-421e-b044-1eef588df168",
+      "name": "DH",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "asymmetric-key-exchange",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/TokenService.java:17"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "6e2afdaa-58e0-4ebb-aa29-79e47000e38b",
+      "name": "ECC",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "digital-signature",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/payments_service.py:20"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "e9b5ff6f-8d7c-45d2-8253-d79e37c9cdf8",
+      "name": "ECDH",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "asymmetric-key-exchange",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/auth.js:8"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "e4356bd7-ccb9-4cef-a00d-c22f0b4ba1ae",
+      "name": "ECDHE/RSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "asymmetric-key-exchange",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/nginx.conf:5"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "94fb93a8-b635-471b-8532-a8511850d6e5",
+      "name": "ECDSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "digital-signature",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/TokenService.java:14"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "dc5ccdf5-1c72-4b3a-94cc-f2d857d5094f",
+      "name": "MD5",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/payments_service.py:25"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "6b2d4e16-6b3a-4319-bccd-8a67938ed190",
+      "name": "RSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "digital-signature",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/auth.js:5"
+        },
+        {
+          "location": "demo_vulnerable_app/payments_service.py:9"
+        },
+        {
+          "location": "demo_vulnerable_app/TokenService.java:9"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "0b6c35e8-fce8-4587-91fb-b696bd781670",
+      "name": "SHA-1",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "occurrences": [
+        {
+          "location": "demo_vulnerable_app/auth.js:12"
+        }
+      ]
+    }
+  ]
+}
