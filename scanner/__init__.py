@@ -1,0 +1,1 @@
+"""QSafe Scanner package."""
