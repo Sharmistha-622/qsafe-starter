@@ -10,8 +10,10 @@ from pathlib import Path
 
 def _cmd_scan(args: argparse.Namespace) -> int:
     """Execute the scan sub-command."""
+    from scanner.cbom import export_cbom
     from scanner.engine import scan_path
     from scanner.loader import load_rules
+    from scanner.sarif import export_sarif
 
     rules_index = load_rules()
     findings = scan_path(args.path, rules_index)
@@ -23,12 +25,17 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     with open(out_file, "w", encoding="utf-8") as fh:
         json.dump([f.to_dict() for f in findings], fh, indent=2)
 
+    cbom_file = export_cbom(findings, out_dir)
+    sarif_file = export_sarif(findings, out_dir)
+
     critical_count = sum(1 for f in findings if f.severity == "CRITICAL")
     scanned = _count_files(args.path)
     print(
         f"Scanned {scanned} files — {len(findings)} findings ({critical_count} critical)"
     )
     print(f"Findings written to {out_file}")
+    print(f"CBOM written to {cbom_file}")
+    print(f"SARIF written to {sarif_file}")
     return 0
 
 
