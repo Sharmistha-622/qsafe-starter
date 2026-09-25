@@ -1,0 +1,73 @@
+# Seed detection rules. Ask Bob to extend these (Go, C#, PHP, OpenSSL CLI, certificates...).
+# usage: key_exchange | encryption | signature | hash | symmetric
+rules:
+  - id: PY-RSA-GEN
+    lang: python
+    pattern: 'rsa\.generate_private_key\('
+    algorithm: RSA
+    usage: encryption
+    quantum_vulnerable: true
+    replacement: "ML-KEM-768 (FIPS 203), hybrid with X25519"
+  - id: PY-EC-GEN
+    lang: python
+    pattern: 'ec\.generate_private_key\('
+    algorithm: ECC
+    usage: signature
+    quantum_vulnerable: true
+    replacement: "ML-DSA-65 (FIPS 204)"
+  - id: PY-MD5
+    lang: python
+    pattern: 'hashlib\.md5\('
+    algorithm: MD5
+    usage: hash
+    quantum_vulnerable: false
+    replacement: "SHA-256 / SHA3-256"
+  - id: JS-RSA-KEYPAIR
+    lang: javascript
+    pattern: "generateKeyPairSync\\(\\s*['\"]rsa['\"]"
+    algorithm: RSA
+    usage: signature
+    quantum_vulnerable: true
+    replacement: "ML-DSA-65 (FIPS 204)"
+  - id: JS-ECDH
+    lang: javascript
+    pattern: 'createECDH\('
+    algorithm: ECDH
+    usage: key_exchange
+    quantum_vulnerable: true
+    replacement: "ML-KEM-768 (FIPS 203), hybrid with X25519"
+  - id: JS-SHA1
+    lang: javascript
+    pattern: "createHash\\(\\s*['\"]sha1['\"]"
+    algorithm: SHA-1
+    usage: hash
+    quantum_vulnerable: false
+    replacement: "SHA-256 (use a password KDF like Argon2 for passwords)"
+  - id: JAVA-RSA
+    lang: java
+    pattern: 'KeyPairGenerator\.getInstance\(\s*"RSA"'
+    algorithm: RSA
+    usage: encryption
+    quantum_vulnerable: true
+    replacement: "ML-KEM-768 (FIPS 203)"
+  - id: JAVA-ECDSA
+    lang: java
+    pattern: 'withECDSA"'
+    algorithm: ECDSA
+    usage: signature
+    quantum_vulnerable: true
+    replacement: "ML-DSA-65 (FIPS 204)"
+  - id: JAVA-DH
+    lang: java
+    pattern: 'KeyAgreement\.getInstance\(\s*"(DH|ECDH)"'
+    algorithm: DH
+    usage: key_exchange
+    quantum_vulnerable: true
+    replacement: "ML-KEM-768 (FIPS 203)"
+  - id: TLS-CLASSICAL-KEX
+    lang: config
+    pattern: '(ECDHE|DHE)-RSA'
+    algorithm: ECDHE/RSA
+    usage: key_exchange
+    quantum_vulnerable: true
+    replacement: "Hybrid TLS group X25519MLKEM768"
