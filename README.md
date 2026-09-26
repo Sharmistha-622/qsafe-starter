@@ -169,8 +169,8 @@ The dashboard shows the Quantum Readiness Score gauge, a findings table with sev
 
 | Name | Role |
 |---|---|
-| **Sharmishtha Mazumdar** | Scanner engine, risk scorer, CBOM/SARIF exporters, custom Bob modes, PQC Migrator demo, `bob_sessions` |
-| **Kartik Tripathi** | Streamlit dashboard, sample data, README, pitch deck, demo video, submission |
+   | **Sharmishtha Mazumdar** | Scanner engine, risk scoring, CBOM/SARIF exporters, custom Bob modes, PQC Migrator, Streamlit dashboard, `bob_sessions` |
+   | **Kartik Tripathi** | README, pitch deck, demo video, submission |
 
 ---
 
