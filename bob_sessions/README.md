@@ -1,10 +1,17 @@
 # bob_sessions/
 
-The previous IBM Bob hackathon REQUIRED this folder. Confirm the rule at kickoff, but assume it applies.
+Evidence of IBM Bob usage for the IBM Bob 2.0 Hackathon (required deliverable).
+Each PNG is the Bob IDE task session consumption summary for one task.
 
-After every important Bob task:
-1. Export the task/session report from Bob IDE (markdown) and save it here, e.g. `01-plan-architecture.md`.
-2. Screenshot the consumption summary (Bobcoins used) and save it next to it, e.g. `01-plan-architecture.png`.
-3. Remove any API keys, tokens or emails before committing.
+| Screenshot | Who | Bob mode | What Bob did |
+|---|---|---|---|
+| sharmishtha_task01_plan | Sharmishtha | Plan | Designed the scanner CLI and task list (docs/cli-plan.md) |
+| sharmishtha_task02_scanner_build | Sharmishtha | Agent | Built the scan engine, Mosca scorer and 14 tests |
+| sharmishtha_task03-04_cbom_sarif_auditor | Sharmishtha | Agent + Quantum-Safe Auditor | CycloneDX CBOM + SARIF exporters, /qscan audit summary |
+| sharmishtha_task04_auditor_mode | Sharmishtha | Quantum-Safe Auditor | Verified findings, plain-English risk report |
+| sharmishtha_task05_pqc_migrator | Sharmishtha | PQC Migrator | Hybrid crypto-agile migration: 0/100 to 100/100 |
+| sharmishtha_task06_dashboard | Sharmishtha | Agent | Streamlit dashboard with Mosca sliders |
+| sharmishtha_task06b_dashboard_fix | Sharmishtha | Agent | Fixed dashboard rendering |
+| kartik_task01_readme | Kartik | Agent | Wrote the project README |
 
-Suggested naming: `NN-<mode>-<what>.md` so judges can follow your build story in order.
+Total Bob usage for the whole build: about 5 Bobcoins.
